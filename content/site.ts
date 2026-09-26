@@ -3,11 +3,11 @@
 export const site = {
   name: "Doug",
   /** Production origin, no trailing slash. Used for canonical URLs, OG and the sitemap. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://dougpicksup.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://answeredbydoug.com",
   title: "Doug — every call answered, only the right ones reach you",
   description:
     "Doug answers the calls you can’t take. It screens each caller, puts urgent people straight through, takes clean messages from everyone else and sends you a summary after every call.",
-  contactEmail: "hello@dougpicksup.com",
+  contactEmail: "hello@answeredbydoug.com",
   /** Legal entity shown in the footer and legal pages. */
   legalName: "Doug Corp",
   /** US state whose law governs the Terms. Change it if Doug Corp is registered elsewhere. */
