@@ -1,0 +1,163 @@
+.form {
+  display: grid;
+  gap: var(--s-6);
+}
+
+.field {
+  display: grid;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.field label,
+.field legend {
+  font-weight: 500;
+  padding: 0;
+}
+
+.field input:not([type="radio"]),
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 3rem;
+  padding: var(--s-3) 0;
+  border: 0;
+  border-bottom: 1px solid var(--fg);
+  border-radius: 0;
+  background: transparent;
+  font-size: max(16px, var(--step-0)); /* 16px+ stops iOS zooming on focus */
+  transition: border-color 300ms var(--ease);
+}
+
+.field select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position:
+    calc(100% - 12px) 55%,
+    calc(100% - 7px) 55%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.field textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: none;
+  border-bottom: 2px solid var(--accent);
+}
+
+.field [aria-invalid="true"] {
+  border-bottom-color: var(--accent);
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+}
+
+.option {
+  position: relative;
+  display: flex;
+}
+
+.option input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.option span {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 var(--s-3);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-weight: 400;
+  text-align: center;
+  transition:
+    background-color 300ms var(--ease),
+    color 300ms var(--ease),
+    border-color 300ms var(--ease);
+}
+
+.option input:checked + span {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+
+.option input:focus-visible + span {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.hint {
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+.error {
+  font-size: var(--step--1);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.formError {
+  padding: var(--s-4);
+  border-left: 2px solid var(--accent);
+  background: var(--surface);
+}
+
+.trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.submit {
+  display: grid;
+  gap: var(--s-3);
+  justify-items: start;
+  margin-top: var(--s-2);
+}
+
+@media (max-width: 767px) {
+  .submit :global(.btn) {
+    width: 100%;
+  }
+}
+
+.done {
+  display: grid;
+  gap: var(--s-4);
+  outline: none;
+}
+
+.doneTitle {
+  font-size: var(--step-4);
+}

@@ -1,0 +1,127 @@
+.calc {
+  display: grid;
+  gap: var(--s-12);
+}
+
+.fields {
+  display: grid;
+  gap: var(--s-8);
+}
+
+.field {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-4);
+}
+
+.row label {
+  font-weight: 500;
+}
+
+.value {
+  font-size: var(--step-1);
+  white-space: nowrap;
+}
+
+.hint {
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+/* A hairline track with a solid thumb. Large touch target, small visual. */
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2.75rem;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+}
+
+.range::-webkit-slider-runnable-track {
+  height: 1px;
+  background: var(--fg);
+}
+
+.range::-moz-range-track {
+  height: 1px;
+  background: var(--fg);
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: -0.625rem;
+  border-radius: 50%;
+  background: var(--fg);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--fg);
+  transition: transform 300ms var(--ease);
+}
+
+.range::-moz-range-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--fg);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--fg);
+}
+
+.range:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+
+.range:focus-visible {
+  outline-offset: 0;
+}
+
+.result {
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+  padding-top: var(--s-8);
+  border-top: 1px solid var(--fg);
+}
+
+.total {
+  font-size: var(--step-4);
+  line-height: 1;
+}
+
+.per {
+  font-size: var(--step-1);
+  color: var(--muted);
+  margin-left: var(--s-2);
+  letter-spacing: 0;
+}
+
+.sub {
+  color: var(--muted);
+}
+
+.note {
+  font-size: var(--step--1);
+  color: var(--muted);
+  max-width: 32em;
+}
+
+@media (min-width: 1024px) {
+  .calc {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: var(--s-16);
+  }
+  .result {
+    position: sticky;
+    top: var(--s-8);
+  }
+}

@@ -1,0 +1,39 @@
+.page {
+  display: grid;
+  gap: var(--s-6);
+  padding-block: var(--s-12) var(--section);
+  max-width: 52rem;
+  margin-inline: 0;
+}
+
+@media (min-width: 900px) {
+  .page {
+    margin-inline: auto;
+  }
+}
+
+.body {
+  display: grid;
+  gap: var(--s-4);
+  max-width: 40em;
+}
+
+.body h2 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  font-size: var(--step-2);
+  margin-top: var(--s-8);
+}
+
+.body ul {
+  list-style: disc;
+  padding-left: var(--s-6);
+  display: grid;
+  gap: var(--s-2);
+}
+
+.body h3 {
+  font-weight: 600;
+  font-size: var(--step-0);
+  margin-top: var(--s-4);
+}

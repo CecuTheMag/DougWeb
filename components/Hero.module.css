@@ -1,0 +1,65 @@
+.hero {
+  padding-top: clamp(3rem, 2rem + 6vw, 8rem);
+  padding-bottom: var(--section);
+  row-gap: var(--s-8);
+  align-items: start;
+}
+
+.eyebrow {
+  margin-bottom: calc(var(--s-4) * -1);
+}
+
+.title {
+  font-size: var(--step-5);
+}
+
+.second {
+  display: block;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.copy {
+  display: grid;
+  gap: var(--s-8);
+  align-content: start;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+.reassure {
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+@media (min-width: 768px) {
+  .eyebrow,
+  .title {
+    grid-column: 1 / span 11;
+  }
+  .copy {
+    grid-column: 1 / span 6;
+  }
+  .demo {
+    grid-column: 7 / span 6;
+  }
+}
+
+@media (min-width: 1200px) {
+  .copy {
+    grid-column: 1 / span 5;
+  }
+  .demo {
+    grid-column: 7 / span 6;
+  }
+}
+
+@media (max-width: 767px) {
+  .actions > :global(.btn) {
+    flex: 1 1 100%;
+  }
+}

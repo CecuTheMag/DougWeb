@@ -1,0 +1,19 @@
+.ctaCopy {
+  display: grid;
+  gap: var(--s-6);
+  align-content: start;
+  margin-bottom: var(--s-12);
+}
+
+@media (min-width: 900px) {
+  .ctaCopy {
+    grid-column: 1 / span 5;
+    margin-bottom: 0;
+    position: sticky;
+    align-self: start;
+    top: var(--s-8);
+  }
+  .form {
+    grid-column: 7 / span 6;
+  }
+}

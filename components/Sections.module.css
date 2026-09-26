@@ -1,0 +1,458 @@
+/* Section heading: eyebrow + a display line, spanning most of the grid. */
+.head {
+  display: grid;
+  gap: var(--s-4);
+  margin-bottom: clamp(var(--s-12), 6vw, var(--s-24));
+}
+
+.quiet {
+  color: var(--muted);
+}
+
+@media (min-width: 768px) {
+  .head {
+    grid-column: 1 / span 10;
+  }
+  .wide {
+    grid-column: 1 / -1;
+  }
+}
+
+/* How it works — a sequence joined by a hairline, not cards. ------------- */
+
+.steps {
+  display: grid;
+  gap: var(--s-12);
+  counter-reset: step;
+}
+
+.step {
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+  padding-top: var(--s-6);
+  border-top: 1px solid var(--fg);
+}
+
+.stepNum {
+  font-size: var(--step-3);
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: var(--s-4);
+}
+
+@media (min-width: 900px) {
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: var(--s-8);
+  }
+}
+
+/* Personas — deliberately offset columns. ------------------------------- */
+
+.personaA,
+.personaB {
+  display: grid;
+  gap: var(--s-6);
+  align-content: start;
+}
+
+.personaB {
+  margin-top: var(--s-16);
+}
+
+.personaLine {
+  font-size: var(--step-3);
+}
+
+@media (min-width: 900px) {
+  .personaA {
+    grid-column: 1 / span 5;
+  }
+  .personaB {
+    grid-column: 7 / span 5;
+    margin-top: var(--s-24);
+  }
+}
+
+/* Rules — large statements, one per row. -------------------------------- */
+
+.rules {
+  display: grid;
+}
+
+.rule {
+  display: grid;
+  gap: var(--s-3);
+  padding-block: var(--s-8);
+  border-top: 1px solid var(--line);
+}
+
+.rule:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.ruleText {
+  font-size: var(--step-3);
+  line-height: 1.08;
+}
+
+.ruleWhy {
+  max-width: 34em;
+}
+
+@media (min-width: 900px) {
+  .rule {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    column-gap: var(--s-12);
+    align-items: baseline;
+  }
+}
+
+/* Speed ------------------------------------------------------------------ */
+
+.speedCopy {
+  margin-bottom: var(--s-12);
+}
+
+@media (min-width: 768px) {
+  .speedCopy {
+    grid-column: 1 / span 7;
+  }
+}
+
+.timeline {
+  margin: 0;
+}
+
+.bar {
+  display: flex;
+  gap: 3px;
+  height: 0.75rem;
+}
+
+.seg {
+  flex-basis: 0;
+  background: var(--fg);
+  transform-origin: left;
+  transition: transform 900ms var(--ease);
+  transition-delay: calc(var(--i, 0) * 140ms + 200ms);
+}
+
+.seg:last-child {
+  background: var(--accent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :global(.js) .timeline:not(:global(.is-in)) .seg {
+    transform: scaleX(0);
+  }
+}
+
+.stages {
+  display: flex;
+  gap: 3px;
+  margin-top: var(--s-4);
+}
+
+.stages li {
+  flex-basis: 0;
+  display: grid;
+  gap: var(--s-1);
+  align-content: start;
+  min-width: 0;
+  padding-right: var(--s-2);
+}
+
+.ms {
+  font-size: var(--step-1);
+}
+
+.stageLabel {
+  font-size: var(--step--1);
+  font-weight: 500;
+}
+
+.stageDetail {
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+.figNote {
+  margin-top: var(--s-8);
+  font-size: var(--step--1);
+  color: var(--muted);
+  max-width: 44em;
+}
+
+/* On narrow screens the proportional labels would collide; list them instead. */
+@media (max-width: 767px) {
+  .stages {
+    flex-direction: column;
+    gap: var(--s-4);
+  }
+  .stages li {
+    grid-template-columns: 4.5rem 1fr;
+    column-gap: var(--s-3);
+  }
+  .stageDetail {
+    grid-column: 2;
+  }
+  .ms {
+    grid-row: span 2;
+  }
+}
+
+.hear {
+  margin-top: var(--s-16);
+}
+
+@media (min-width: 768px) {
+  .hear {
+    grid-column: 1 / span 6;
+  }
+}
+
+.hearEmpty,
+.hearPlayer {
+  display: grid;
+  gap: var(--s-3);
+  margin: 0;
+  padding: var(--s-6);
+  border: 1px dashed var(--line);
+  border-radius: 1rem;
+}
+
+.hearPlayer {
+  border-style: solid;
+}
+
+.hearPlayer audio {
+  width: 100%;
+}
+
+/* Trust ------------------------------------------------------------------ */
+
+.trust {
+  display: grid;
+}
+
+.trustRow {
+  display: grid;
+  gap: var(--s-2);
+  padding-block: var(--s-6);
+  border-top: 1px solid var(--line);
+}
+
+.trustRow dd {
+  margin: 0;
+  max-width: 36em;
+}
+
+@media (min-width: 900px) {
+  .trust {
+    grid-column: 1 / span 10;
+  }
+  .trustRow {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+    column-gap: var(--s-12);
+    align-items: baseline;
+  }
+}
+
+.processors {
+  margin-top: var(--s-12);
+  display: grid;
+  gap: var(--s-4);
+}
+
+.processors ul {
+  display: grid;
+  gap: var(--s-2);
+}
+
+@media (min-width: 900px) {
+  .processors {
+    grid-column: 1 / span 8;
+  }
+}
+
+/* Pricing ---------------------------------------------------------------- */
+
+.planA,
+.planB {
+  display: grid;
+  gap: var(--s-4);
+  align-content: start;
+  padding-top: var(--s-6);
+  border-top: 1px solid var(--fg);
+  margin-bottom: var(--s-16);
+}
+
+.planA > :global(.btn),
+.planB > :global(.btn) {
+  justify-self: start;
+  margin-top: var(--s-4);
+}
+
+@media (min-width: 900px) {
+  .planA {
+    grid-column: 1 / span 5;
+  }
+  .planB {
+    grid-column: 7 / span 5;
+  }
+}
+
+.price {
+  font-size: var(--step-5);
+  line-height: 1;
+}
+
+.per {
+  font-size: var(--step-1);
+  color: var(--muted);
+  margin-left: var(--s-2);
+  letter-spacing: 0;
+}
+
+.planNote {
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+.includes {
+  display: grid;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+}
+
+.includes li {
+  position: relative;
+  padding-left: var(--s-6);
+}
+
+.includes li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8125rem;
+  width: 0.75rem;
+  height: 1px;
+  transform: translateZ(0);
+  background: var(--accent);
+}
+
+.cap {
+  display: block;
+  margin-top: var(--s-3);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--step-0);
+  color: var(--muted);
+}
+
+.pilot {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: var(--step-2);
+  line-height: 1.2;
+}
+
+@media (min-width: 900px) {
+  .pilot {
+    grid-column: 1 / span 10;
+  }
+}
+
+/* Founder ---------------------------------------------------------------- */
+
+.founder {
+  display: grid;
+  gap: var(--s-6);
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: var(--step-2);
+  line-height: 1.3;
+  text-wrap: pretty;
+}
+
+.sign {
+  display: grid;
+  gap: var(--s-1);
+  margin-top: var(--s-4);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--step-0);
+}
+
+.sign .display {
+  font-size: var(--step-2);
+}
+
+@media (min-width: 900px) {
+  .founder {
+    grid-column: 3 / span 8;
+  }
+}
+
+/* FAQ — native details/summary: keyboard and screen-reader support for free. */
+
+.faq {
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 900px) {
+  .faq {
+    grid-column: 1 / span 9;
+  }
+}
+
+.qa {
+  border-top: 1px solid var(--line);
+}
+
+.qa summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s-6);
+  min-height: 3rem;
+  padding-block: var(--s-6);
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: var(--step-2);
+  line-height: 1.2;
+}
+
+.qa summary::-webkit-details-marker {
+  display: none;
+}
+
+.plus {
+  position: relative;
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+}
+
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transition: transform 400ms var(--ease);
+}
+
+.plus::after {
+  transform: rotate(90deg);
+}
+
+.qa[open] .plus::after {
+  transform: rotate(0deg);
+}
+
+.answer {
+  padding-bottom: var(--s-8);
+}
